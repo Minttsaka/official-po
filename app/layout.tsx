@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-// import { Yeseva_One } from 'next/font/google'
+import { Inter } from "next/font/google";
 import "./globals.css";
 import 'animate.css';
 import { Navbar } from "@/components/navbar";
@@ -12,12 +12,8 @@ export const metadata: Metadata = {
   icons:'/logo.png'
 };
 
-// const yeseva_one = Yeseva_One({
-//   weight:'400',
-//   subsets: ['latin'],
-//   display: 'swap',
-//   variable: '--font-yeseva_one',
-// })
+const inter = Inter({ subsets: ["latin"] });
+
 
 export default function RootLayout({
   children,
@@ -26,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` `}>
+      <body className={inter.className}>
         <Navbar />
         <div className="md:mt-16 w-full">
           {children}

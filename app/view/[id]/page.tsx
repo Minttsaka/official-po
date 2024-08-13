@@ -5,6 +5,7 @@ import { prisma } from '@/lib/connect'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import Comments from '@/components/Comments'
 
 export default async function page({params}:{params:{
   id:string
@@ -58,6 +59,7 @@ export default async function page({params}:{params:{
           {article && <div
             dangerouslySetInnerHTML={{ __html: article?.content! }}
           className='md:text-lg mt-5'/> }
+          <Comments slug={article?.slug!} id={id!} />
         </article>
         <SingleBlogRelated />
         <SIngleBlogMore />
